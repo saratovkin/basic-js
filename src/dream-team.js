@@ -20,8 +20,7 @@ export default function createDreamTeam(members) {
       if (typeof item == 'string')
         result += item[0];
     });
-    return result.split('').sort().join('');
+    return (result.length != 0) ? result.split('').sort().join('') : (false);
   }
   return false;
 }
-
