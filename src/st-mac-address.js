@@ -14,7 +14,7 @@ import { NotImplementedError } from '../extensions/index.js';
  * For 00-1B-63-84-45-E6, the output should be true.
  *
  */
-export default function isMAC48Address(/* n */) {
+export default function isMAC48Address(inputString) {
   let temp = inputString.split('-');
   if (temp.length != 6) {
     return false;
