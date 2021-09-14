@@ -11,14 +11,18 @@ import { NotImplementedError } from '../extensions/index.js';
  *
  */
 export default function encodeLine(str) {
-  let result = [];
-  str.split('').forEach((item) => {
-    let reg = new RegExp(item, 'g');
-    result.push(str.match(reg).length + item);
-  });
-  function unique(value, index, self) {
-    return self.indexOf(value) === index;
+  let symbols = str.split('');
+  let char;
+  let result = []
+  for (let i = 0, amount; i < symbols.length; i++) {
+    amount = 0;
+    char = symbols[i];
+    while (char == symbols[i]) {
+      amount++;
+      i++;
+    }
+    i--;
+    (amount > 1) ? (result.push(amount + char)) : (result.push(char));
   }
-  return result.filter(unique).join('');
+  return result.join('');
 }
-
