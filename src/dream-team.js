@@ -14,11 +14,14 @@ import { NotImplementedError } from '../extensions/index.js';
  *
  */
 export default function createDreamTeam(members) {
-  let result = '';
-  members.forEach((item) => {
-    if (typeof item == 'string')
-      result += item[0];
-  });
-  return result.split('').sort().join('');
+  if (Array.isArray(members)) {
+    let result = '';
+    members.forEach((item) => {
+      if (typeof item == 'string')
+        result += item[0];
+    });
+    return result.split('').sort().join('');
+  }
+  return false;
 }
 
