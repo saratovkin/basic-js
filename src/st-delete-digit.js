@@ -14,7 +14,7 @@ import { NotImplementedError } from '../extensions/index.js';
 export default function deleteDigit(n) {
   let arr = n.toString().split('')
   let max = 0;
-  let digit;
+  let digit = null;
   for (let i = 0; i < arr.length; i++) {
     digit = arr[i];
     arr[i] = '';
@@ -23,5 +23,5 @@ export default function deleteDigit(n) {
     }
     arr[i] = digit;
   }
-  return max;
+  return +max;
 }
