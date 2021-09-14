@@ -18,9 +18,9 @@ export default function createDreamTeam(members) {
     let result = '';
     members.forEach((item) => {
       if (typeof item == 'string')
-        result += item[0];
+        result += item.trim()[0];
     });
-    return (result.length != 0) ? result.split('').sort().join('') : (false);
+    return (result.length != 0) ? result.toLowerCase().split('').sort().join('').toUpperCase() : (false);
   }
   return false;
 }
