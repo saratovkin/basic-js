@@ -25,7 +25,9 @@ export default {
   },
 
   removeLink(position) {
-    if (!Number.isInteger(position) || position > ((this.chain.length + 1) / 2) || position <= 0) {
+    console.log(position);
+    if (isNaN(position) || position > ((this.chain.length + 1) / 2) || position <= 0) {
+      this.chain = [];
       throw new Error("You can't remove incorrect link!");
     }
     if (position == 1) {
