@@ -13,6 +13,7 @@ import { NotImplementedError } from '../extensions/index.js';
  * transform([1, 2, 3, '--discard-prev', 4, 5]) => [1, 2, 4, 5]
  * 
  */
+
 export default function transform(arr) {
   if (!Array.isArray(arr)) {
     throw new Error('arr parameter must be an instance of the Array!');
@@ -50,5 +51,3 @@ export default function transform(arr) {
   }
   return result;
 }
-
-console.log(transform([]));
