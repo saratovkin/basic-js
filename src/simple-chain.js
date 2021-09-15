@@ -6,7 +6,7 @@ import { NotImplementedError } from '../extensions/index.js';
  */
 export default {
   chain: [],
-  
+
   getLength() {
     return (this.chain.length + 1) / 2;
   },
@@ -26,7 +26,7 @@ export default {
 
   removeLink(position) {
     if (!Number.isInteger(position) || position > ((this.chain.length + 1) / 2) || position <= 0) {
-      throw new Error('You can\'t remove incorrect link!');
+      throw new Error("You can't remove incorrect link!");
     }
     if (position == 1) {
       this.chain.shift();
