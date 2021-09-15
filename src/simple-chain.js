@@ -6,9 +6,11 @@ import { NotImplementedError } from '../extensions/index.js';
  */
 export default {
   chain: [],
+  
   getLength() {
     return (this.chain.length + 1) / 2;
   },
+
   addLink(value) {
     if (value === undefined) {
       value = '';
@@ -18,12 +20,12 @@ export default {
     } else {
       this.chain.push('~~');
       this.chain.push(`( ${value} )`);
-
     }
     return this;
   },
+
   removeLink(position) {
-    if (!Number.isInteger(position) || position > ((this.chain.length + 1) / 2) || position < 0) {
+    if (!Number.isInteger(position) || position > ((this.chain.length + 1) / 2) || position <= 0) {
       throw new Error('You can\'t remove incorrect link!');
     }
     if (position == 1) {
@@ -34,12 +36,15 @@ export default {
     }
     return this;
   },
+
   reverseChain() {
     this.chain.reverse();
     return this;
   },
+
   finishChain() {
-    return this.chain.join('');
+    let finalChain = this.chain.join('');
+    this.chain = [];
+    return finalChain;
   }
 };
-
