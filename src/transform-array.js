@@ -1,4 +1,4 @@
-import { NotImplementedError } from '../extensions/index.js';
+// import { NotImplementedError } from '../extensions/index.js';
 
 /**
  * Create transformed array based on the control sequences that original
@@ -13,12 +13,13 @@ import { NotImplementedError } from '../extensions/index.js';
  * transform([1, 2, 3, '--discard-prev', 4, 5]) => [1, 2, 4, 5]
  * 
  */
-export default function transform(arr) {
+// export default 
+function transform(arr) {
   if (!Array.isArray(arr)) {
     throw new Error('arr parameter must be an instance of the Array!');
   }
   result = [...arr];
-  let index;
+  let index = 0;
   if (result.indexOf('--discard-prev') != -1) {
     index = result.indexOf('--discard-prev');
     result.splice(index, 1);
@@ -50,3 +51,5 @@ export default function transform(arr) {
   }
   return result;
 }
+
+console.log(transform([]));
