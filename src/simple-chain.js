@@ -23,7 +23,7 @@ export default {
     return this;
   },
   removeLink(position) {
-    if (!Number.isInteger(position) || position > ((this.chain.length + 1) / 2)) {
+    if (!Number.isInteger(position) || position > ((this.chain.length + 1) / 2) || position < 0) {
       throw new Error('You can\'t remove incorrect link!');
     }
     if (position == 1) {
