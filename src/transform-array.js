@@ -17,7 +17,8 @@ export default function transform(arr) {
   if (!Array.isArray(arr)) {
     throw new Error("'arr' parameter must be an instance of the Array!");
   }
-  result = arr.slice();
+  let result = arr.slice();
+  console.log(result);
   let index = 0;
   if (result.indexOf('--double-next') != -1) {
     index = result.indexOf('--double-next');
