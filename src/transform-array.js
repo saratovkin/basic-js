@@ -17,38 +17,40 @@ export default function transform(arr) {
   if (!Array.isArray(arr)) {
     throw new Error("'arr' parameter must be an instance of the Array!");
   }
-  result = [...arr];
-  let index = 0;
-  while (result.indexOf('--double-next') != -1) {
-    index = result.indexOf('--double-next');
-    result.splice(index, 1);
-    if (index != result.length) {
-      result.splice(index, 0, result[index]);
-    }
-  }
-  if (result.indexOf('--discard-next') != -1) {
-    index = result.indexOf('--discard-next');
-    result.splice(index, 1);
-    if (result[index + 1]) {
-      if (result[index + 1] + ''.includes('prev')) {
-        result.splice(index, 1);
-      }
-    }
-    result.splice(index, 1);
-  }
-  if (result.indexOf('--discard-prev') != -1) {
-    index = result.indexOf('--discard-prev');
-    result.splice(index, 1);
-    if (index != 0) {
-      result.splice(index - 1, 1);
-    }
-  }
-  while (result.indexOf('--double-prev') != -1) {
-    index = result.indexOf('--double-prev');
-    result.splice(index, 1);
-    if (!(index == 0 || index == result.indexOf('--discard-next') + 1)) {
-      result.splice(index - 1, 0, result[index - 1]);
-    }
-  }
-  return result;
+  //test 
+  // result = [...arr];
+  // let index = 0;
+  // while (result.indexOf('--double-next') != -1) {
+  //   index = result.indexOf('--double-next');
+  //   result.splice(index, 1);
+  //   if (index != result.length) {
+  //     result.splice(index, 0, result[index]);
+  //   }
+  // }
+  // if (result.indexOf('--discard-next') != -1) {
+  //   index = result.indexOf('--discard-next');
+  //   result.splice(index, 1);
+  //   if (result[index + 1]) {
+  //     if (result[index + 1] + ''.includes('prev')) {
+  //       result.splice(index, 1);
+  //     }
+  //   }
+  //   result.splice(index, 1);
+  // }
+  // if (result.indexOf('--discard-prev') != -1) {
+  //   index = result.indexOf('--discard-prev');
+  //   result.splice(index, 1);
+  //   if (index != 0) {
+  //     result.splice(index - 1, 1);
+  //   }
+  // }
+  // while (result.indexOf('--double-prev') != -1) {
+  //   index = result.indexOf('--double-prev');
+  //   result.splice(index, 1);
+  //   if (!(index == 0 || index == result.indexOf('--discard-next') + 1)) {
+  //     result.splice(index - 1, 0, result[index - 1]);
+  //   }
+  // }
+  // return result;
+  return arr;
 }
