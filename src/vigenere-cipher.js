@@ -29,7 +29,7 @@ export default class VigenereCipheringMachine {
     this.flag = flag;
   }
   encrypt(str, key) {
-    if (str === undefined || key === undefined) {
+    if (str == undefined || key == undefined) {
       throw new Error("Incorrect arguments!");
     }
     let strCode;
@@ -56,12 +56,11 @@ export default class VigenereCipheringMachine {
     }
     if (this.flag === false) {
       str = str.split('').reverse().join('');
-      key = key.split('').reverse().join('');
     }
     return str;
   }
   decrypt(str, key) {
-    if (str === undefined || key === undefined) {
+    if (str == undefined || key == undefined) {
       throw new Error("Incorrect arguments!");
     }
     let strCode;
@@ -88,7 +87,6 @@ export default class VigenereCipheringMachine {
     }
     if (this.flag === false) {
       str = str.split('').reverse().join('');
-      key = key.split('').reverse().join('');
     }
     return str;
   }
