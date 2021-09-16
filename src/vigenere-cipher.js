@@ -43,7 +43,7 @@ export default class VigenereCipheringMachine {
     for (let i = 0, j = 0; i < str.length; i++, j++) {
       strCode = str[i].charCodeAt(0) - 65;
       keyCode = key[j].charCodeAt(0) - 65;
-      if (strCode >= 0) {
+      if (strCode >= 0 && strCode <= 25) {
         if (strCode + keyCode > 25) {
           finalCode = strCode + keyCode - 26 + 65;
         } else {
@@ -74,7 +74,7 @@ export default class VigenereCipheringMachine {
     for (let i = 0, j = 0; i < str.length; i++, j++) {
       strCode = str[i].charCodeAt(0) - 65;
       keyCode = key[j].charCodeAt(0) - 65;
-      if (strCode >= 0) {
+      if (strCode >= 0 && strCode <= 25) {
         if (strCode < keyCode) {
           finalCode = 26 - keyCode + strCode;
         } else {
@@ -91,6 +91,7 @@ export default class VigenereCipheringMachine {
     return str;
   }
 }
+
 
 
 
