@@ -15,15 +15,15 @@ import { NotImplementedError } from '../extensions/index.js';
  *
  */
 export default function isMAC48Address(inputString) {
-  let temp = inputString.split('-');
-  if (temp.length != 6) {
-    return false;
-  }
-  function filter(item) {
-    if (item.length > 2) {
-      return false;
-    }
-    return /^([0-9[a-f]+$)/gi.test(item);
-  }
-  return (temp.every((filter)));
+  // let temp = inputString.split('-');
+  // if (temp.length != 6) {
+  //   return false;
+  // }
+  // function filter(item) {
+  //   if (item.length > 2) {
+  //     return false;
+  //   }
+  //   return /^([0-9[a-f]+$)/gi.test(item);
+  // }
+  // return (temp.every((filter)));
 }
