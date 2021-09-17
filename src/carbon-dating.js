@@ -18,9 +18,9 @@ const HALF_LIFE_PERIOD = 5730;
  *
  */
 export default function dateSample(sampleActivity) {
-  if (sampleActivity > MODERN_ACTIVITY) {
-    return false;
-  }
-  let result = Math.ceil(Math.log(MODERN_ACTIVITY / sampleActivity) / (0.693 / HALF_LIFE_PERIOD));
-  return (isNaN(result) || !isFinite(result)) ? false : result;
+  // if (sampleActivity > MODERN_ACTIVITY) {
+  //   return false;
+  // }
+  // let result = Math.ceil(Math.log(MODERN_ACTIVITY / sampleActivity) / (0.693 / HALF_LIFE_PERIOD));
+  // return (isNaN(result) || !isFinite(result)) ? false : result;
 }
