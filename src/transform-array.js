@@ -13,7 +13,43 @@ import { NotImplementedError } from '../extensions/index.js';
  * transform([1, 2, 3, '--discard-prev', 4, 5]) => [1, 2, 4, 5]
  * 
  */
-export default function transform(/* arr */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+export default function transform(arr) {
+  if (!Array.isArray(arr)) {
+    throw new Error("'arr' parameter must be an instance of the Array!");
+  }
+  let result = arr.slice();
+  console.log(result);
+  let index = 0;
+  if (result.indexOf('--double-next') != -1) {
+    index = result.indexOf('--double-next');
+    result.splice(index, 1);
+    if (index != result.length) {
+      result.splice(index, 0, result[index]);
+    }
+  }
+  if (result.indexOf('--discard-next') != -1) {
+    index = result.indexOf('--discard-next');
+    result.splice(index, 1);
+    if (result[index + 1]) {
+      if (result[index + 1] + ''.includes('prev')) {
+        result.splice(index, 1);
+      }
+    }
+    result.splice(index, 1);
+  }
+  if (result.indexOf('--discard-prev') != -1) {
+    index = result.indexOf('--discard-prev');
+    result.splice(index, 1);
+    if (index != 0) {
+      result.splice(index - 1, 1);
+    }
+  }
+  if (result.indexOf('--double-prev') != -1) {
+    index = result.indexOf('--double-prev');
+    result.splice(index, 1);
+    if (!(index == 0 || index == result.indexOf('--discard-next') + 1)) {
+      result.splice(index - 1, 0, result[index - 1]);
+    }
+  }
+  return result;
 }
